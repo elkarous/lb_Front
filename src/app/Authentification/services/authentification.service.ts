@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
-import {ResetPassword} from "../../models/ResetPassword";
+import {ResetPassword} from "../../../models/ResetPassword";
 
 @Injectable({
   providedIn: 'root'

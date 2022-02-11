@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthentificationService} from "../services/authentification.service";
+import {AuthentificationService} from "../Authentification/services/authentification.service";
 import {AccountService} from "../services/account.service";
-import {TokenService} from "../services/token.service";
+import {TokenService} from "../Authentification/services/token.service";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserEntity} from "../../models/userEntity";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {PasswordComponent} from "../password/password.component";
+import {PasswordComponent} from "../Authentification/password/password.component";
 
 @Component({
   selector: 'app-home',

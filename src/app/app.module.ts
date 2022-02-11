@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {JwtInterceptorService} from "./services/jwt-interceptor.service";
+import {JwtInterceptorService} from "./Authentification/services/jwt-interceptor.service";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
@@ -17,12 +17,21 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PasswordComponent } from './password/password.component';
+import { PasswordComponent } from './Authentification/password/password.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import {AuthGuard} from "./guards/auth.guard";
+import {AuthGuard} from "./Authentification/guards/auth.guard";
 import { MatProgressBarModule} from "@angular/material/progress-bar";
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordComponent } from './Authentification/reset-password/reset-password.component';
 import {MatCardModule} from "@angular/material/card";
+import { UpdateProfilComponent } from './user/update-profil/update-profil.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatDividerModule} from "@angular/material/divider";
+import { AddUserComponent } from './user/add-user/add-user.component';
+import { ListUserComponent } from './user/list-user/list-user.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
+import {NgxEchartsModule} from "ngx-echarts";
 
 @NgModule({
   declarations: [
@@ -30,7 +39,10 @@ import {MatCardModule} from "@angular/material/card";
     HomeComponent,
     DashboardComponent,
     PasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UpdateProfilComponent,
+    AddUserComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +63,14 @@ import {MatCardModule} from "@angular/material/card";
     MatMenuModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')  })
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},

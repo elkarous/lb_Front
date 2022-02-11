@@ -40,6 +40,9 @@ export class TokenService {
 getUserName(){
     return this.payload(this.getToken()).name;
 }
+  getUserId(){
+    return this.payload(this.getToken()).id;
+  }
   getExprirationDate(token:string){
    let date = new Date(0);
     date.setUTCSeconds(this.payload(token).exp);
