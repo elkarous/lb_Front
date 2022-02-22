@@ -1,16 +1,19 @@
 import {Role} from "./Role";
-import {DatePipe} from "@angular/common";
 import {FileDB} from "./FileDB";
+import {Region} from "./Region";
+import {Camping} from "./Camping";
 
 export class UserEntity{
-  id:number;
+  id:string;
  firstName:string;
  lastName:string;
  email:string;
  password:string;
-  creation_date:Date;
+ creationDate:Date;
  role :Role;
  image :FileDB;
  phone:number;
- gender:string
+ gender:string;
+ address:Region;
+ camping:Camping;
 }

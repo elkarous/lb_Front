@@ -1,0 +1,51 @@
+<mat-toolbar class="bg-white " >
+  <span class="w-100 nav-item">
+    <img src="../../assets/img/logo.png" alt="logo" class="border-white" height="80" width="250">
+    </span>
+
+    <span class="nav-item active ">
+      <button mat-button class="menu-button nav-link " routerLink="/dashAgent/proprieties">
+        <mat-icon>map</mat-icon>
+        <span>Proprieties </span>
+      </button>
+    </span>
+    <span  class="nav-item">
+      <button mat-button  class="menu-button nav-link "  routerLink="/dashAgent/previous">
+        <mat-icon>show_chart</mat-icon>
+        <span >Previous data </span>
+      </button>
+    </span>
+    <span  class="nav-item">
+      <button mat-button  class="menu-button nav-link "  routerLink="/dashAgent/forecast">
+        <mat-icon>insert_chart_outlined</mat-icon>
+        <span >Forecast </span>
+      </button>
+    </span>
+  <span class="nav-item text-end ">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon">
+    <img [src]="retrievedImage" class="rounded-circle imgIcon  " height="28" width="28" alt="image">
+  </button>
+  <mat-menu #menu="matMenu">
+    <span mat-menu-item class="text-center">
+      <p class="name">{{user.firstName}} {{user.lastName}}</p>
+      <p class="designation">Member since {{user.creationDate|date}} </p>
+
+    </span>
+    <hr >
+    <button mat-menu-item (click)="openDialog()">
+      <mat-icon>burst_mode</mat-icon>
+      <span> Reset image </span>
+    </button>
+      <button mat-menu-item (click)="openDialogPassword()">
+          <mat-icon>security</mat-icon>
+          <span > Reset password </span>
+        </button>
+    <hr>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+    </span>
+</mat-toolbar>

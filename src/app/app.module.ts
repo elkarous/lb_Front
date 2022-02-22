@@ -16,14 +16,14 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './SuperAdmin/dashboard/dashboard.component';
 import { PasswordComponent } from './Authentification/password/password.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import { MatDialogModule} from "@angular/material/dialog";
 import {AuthGuard} from "./Authentification/guards/auth.guard";
 import { MatProgressBarModule} from "@angular/material/progress-bar";
 import { ResetPasswordComponent } from './Authentification/reset-password/reset-password.component';
 import {MatCardModule} from "@angular/material/card";
-import { UpdateProfilComponent } from './user/update-profil/update-profil.component';
+import { UpdateProfilComponent } from './update-profil/update-profil.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatDividerModule} from "@angular/material/divider";
 import { AddUserComponent } from './user/add-user/add-user.component';
@@ -32,6 +32,23 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {NgxEchartsModule} from "ngx-echarts";
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { NavbarComponent } from './Agent/navbar/navbar.component';
+import { DashAgentComponent } from './Agent/dash-agent/dash-agent.component';
+import { DashAdminComponent } from './Admin/dash-admin/dash-admin.component';
+import { ProprietiesComponent } from './proprieties/proprieties.component';
+import { PreviousComponent } from './previous/previous.component';
+import { ForecastComponent } from './forecast/forecast.component';
+import {MatRadioModule} from "@angular/material/radio";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { MapsComponent } from './maps/maps.component';
+import {AgmCoreModule} from "@agm/core";
+import { DashHomeComponent } from './SuperAdmin/dash-home/dash-home.component';
+import { TemplatePasswordComponent } from './template-password/template-password.component';
+import { ProfileComponent } from './Agent/profile/profile.component';
+import { AddAgentComponent } from './Admin/add-agent/add-agent.component';
+import { ListAgentComponent } from './Admin/list-agent/list-agent.component';
+import { HomeAgentComponent } from './Admin/home-agent/home-agent.component';
 
 @NgModule({
   declarations: [
@@ -42,36 +59,57 @@ import {NgxEchartsModule} from "ngx-echarts";
     ResetPasswordComponent,
     UpdateProfilComponent,
     AddUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    UpdateUserComponent,
+    NavbarComponent,
+    DashAgentComponent,
+    DashAdminComponent,
+    ProprietiesComponent,
+    PreviousComponent,
+    ForecastComponent,
+    MapsComponent,
+    DashHomeComponent,
+    TemplatePasswordComponent,
+    ProfileComponent,
+    AddAgentComponent,
+    ListAgentComponent,
+    HomeAgentComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    ToastrModule.forRoot(),
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatDialogModule,
-    MatProgressBarModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')  })
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        ToastrModule.forRoot(),
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatSliderModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatProgressBarModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatDividerModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatDialogModule,
+        NgxEchartsModule.forRoot({
+            echarts: () => import('echarts')
+        }),
+        MatRadioModule,
+        MatTooltipModule,
+      AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyAQxPaPvhEAr2TCGh9qeN4XI1tIBV9PtIQ'
+      })
+    ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
     {

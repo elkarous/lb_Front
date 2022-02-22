@@ -1,0 +1,324 @@
+<testExecutions version="1">
+  <file path="src/app/user/update-user/update-user.component.spec.ts">
+    <testCase name="UpdateUserComponent should create" duration="235">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AccountService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AccountService_Factory [as factory] (ng:///AccountService/ɵfac.js:4:77)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/user/update-user/update-user.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/Authentification/password/password.component.spec.ts">
+    <testCase name="PasswordComponent should create" duration="30">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AuthentificationService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AuthentificationService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AuthentificationService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AuthentificationService_Factory [as factory] (ng:///AuthentificationService/ɵfac.js:4:51)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/Authentification/password/password.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/home/home.component.spec.ts">
+    <testCase name="HomeComponent should create" duration="33">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AuthentificationService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AuthentificationService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AuthentificationService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AuthentificationService_Factory [as factory] (ng:///AuthentificationService/ɵfac.js:4:51)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/home/home.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/previous/previous.component.spec.ts">
+    <testCase name="PreviousComponent should create" duration="19"/>
+  </file>
+  <file path="src/app/user/add-user/add-user.component.spec.ts">
+    <testCase name="AddUserComponent should create" duration="56">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AccountService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AccountService_Factory [as factory] (ng:///AccountService/ɵfac.js:4:77)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/user/add-user/add-user.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/components/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should create" duration="30">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[Router -&gt; Router]: 
+  NullInjectorError: No provider for Router!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'Router', 'Router' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[Router -&gt; Router]: 
+  NullInjectorError: No provider for Router!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+    at lookupTokenUsingModuleInjector (node_modules/@angular/core/fesm2015/core.mjs:3334:1)
+    at getOrCreateInjectable (node_modules/@angular/core/fesm2015/core.mjs:3446:1)
+    at ɵɵdirectiveInject (node_modules/@angular/core/fesm2015/core.mjs:14381:1)
+    at NodeInjectorFactory.NavbarComponent_Factory [as factory] (ng:///NavbarComponent/ɵfac.js:5:7)
+    at getNodeInjectable (node_modules/@angular/core/fesm2015/core.mjs:3541:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/components/navbar/navbar.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/Authentification/services/token.service.spec.ts">
+    <testCase name="TokenService should be created" duration="5"/>
+  </file>
+  <file path="src/app/Authentification/reset-password/reset-password.component.spec.ts">
+    <testCase name="ResetPasswordComponent should create" duration="25">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[ActivatedRoute -&gt; ActivatedRoute]: 
+  NullInjectorError: No provider for ActivatedRoute!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'ActivatedRoute', 'ActivatedRoute' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[ActivatedRoute -&gt; ActivatedRoute]: 
+  NullInjectorError: No provider for ActivatedRoute!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+    at lookupTokenUsingModuleInjector (node_modules/@angular/core/fesm2015/core.mjs:3334:1)
+    at getOrCreateInjectable (node_modules/@angular/core/fesm2015/core.mjs:3446:1)
+    at ɵɵdirectiveInject (node_modules/@angular/core/fesm2015/core.mjs:14381:1)
+    at NodeInjectorFactory.ResetPasswordComponent_Factory [as factory] (ng:///ResetPasswordComponent/ɵfac.js:4:50)
+    at getNodeInjectable (node_modules/@angular/core/fesm2015/core.mjs:3541:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/Authentification/reset-password/reset-password.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/Authentification/services/authentification.service.spec.ts">
+    <testCase name="AuthentificationService should be created" duration="7">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AuthentificationService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AuthentificationService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AuthentificationService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AuthentificationService_Factory [as factory] (ng:///AuthentificationService/ɵfac.js:4:51)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at TestBedRender3.inject (node_modules/@angular/core/fesm2015/testing.mjs:1713:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/Authentification/services/authentification.service.spec.ts:14:21)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/forecast/forecast.component.spec.ts">
+    <testCase name="ForecastComponent should create" duration="12"/>
+  </file>
+  <file path="src/app/update-profil/update-profil.component.spec.ts">
+    <testCase name="UpdateProfilComponent should create" duration="28">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AccountService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AccountService_Factory [as factory] (ng:///AccountService/ɵfac.js:4:77)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/update-profil/update-profil.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/user/list-user/list-user.component.spec.ts">
+    <testCase name="ListUserComponent should create" duration="35">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AccountService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AccountService_Factory [as factory] (ng:///AccountService/ɵfac.js:4:77)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/user/list-user/list-user.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/dash-admin/dash-admin.component.spec.ts">
+    <testCase name="DashAdminComponent should create" duration="9"/>
+  </file>
+  <file path="src/app/dash-agent/dash-agent.component.spec.ts">
+    <testCase name="DashAgentComponent should create" duration="9"/>
+  </file>
+  <file path="src/app/dashboard/dashboard.component.spec.ts">
+    <testCase name="DashboardComponent should create" duration="25">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[Router -&gt; Router]: 
+  NullInjectorError: No provider for Router!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'Router', 'Router' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[Router -&gt; Router]: 
+  NullInjectorError: No provider for Router!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at Object.get (node_modules/@angular/core/fesm2015/core.mjs:21484:1)
+    at lookupTokenUsingModuleInjector (node_modules/@angular/core/fesm2015/core.mjs:3334:1)
+    at getOrCreateInjectable (node_modules/@angular/core/fesm2015/core.mjs:3446:1)
+    at ɵɵdirectiveInject (node_modules/@angular/core/fesm2015/core.mjs:14381:1)
+    at NodeInjectorFactory.DashboardComponent_Factory [as factory] (ng:///DashboardComponent/ɵfac.js:5:7)
+    at getNodeInjectable (node_modules/@angular/core/fesm2015/core.mjs:3541:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/dashboard/dashboard.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/services/loader.service.spec.ts">
+    <testCase name="LoaderService should be created" duration="4"/>
+  </file>
+  <file path="src/app/services/account.service.spec.ts">
+    <testCase name="AccountService should be created" duration="5">
+      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AccountService', 'HttpClient', 'HttpClient' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[AccountService -&gt; HttpClient -&gt; HttpClient]: 
+  NullInjectorError: No provider for HttpClient!
+    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11095:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11262:1)
+    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4741:1)
+    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4745:1)
+    at Object.AccountService_Factory [as factory] (ng:///AccountService/ɵfac.js:4:77)
+    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11435:1)
+    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11251:1)
+    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21807:1)
+    at TestBedRender3.inject (node_modules/@angular/core/fesm2015/testing.mjs:1713:1)
+
+Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/services/account.service.spec.ts:14:21)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should render title" duration="16">
+      <failure message="Error">Error: Expected undefined to contain 'lb_front app is running!'.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/app.component.spec.ts:33:66)
+    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+</failure>
+    </testCase>
+    <testCase name="AppComponent should have as title 'lb_front'" duration="7"/>
+    <testCase name="AppComponent should create the app" duration="8"/>
+  </file>
+  <file path="src/app/Authentification/services/jwt-interceptor.service.spec.ts">
+    <testCase name="JwtInterceptorService should be created" duration="3"/>
+  </file>
+  <file path="src/app/proprieties/proprieties.component.spec.ts">
+    <testCase name="ProprietiesComponent should create" duration="7"/>
+  </file>
+</testExecutions>

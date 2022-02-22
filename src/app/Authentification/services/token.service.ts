@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
 
-  constructor() { }
 
   set(data: any) {
     localStorage.setItem('token', data.token);
     localStorage.setItem('id', data.id);
+
   }
 
   handle(data :any) {
@@ -40,9 +40,10 @@ export class TokenService {
 getUserName(){
     return this.payload(this.getToken()).name;
 }
-  getUserId(){
-    return this.payload(this.getToken()).id;
+  getRegion(){
+    return this.payload(this.getToken()).region;
   }
+
   getExprirationDate(token:string){
    let date = new Date(0);
     date.setUTCSeconds(this.payload(token).exp);

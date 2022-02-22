@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Reset  profile image</h1>
+<div mat-dialog-content>  <div class="d-flex justify-content-center align-items-center ">
+  <img class="rounded  "
+       [src]="retrievedImage"
+       alt="" width="200" height="200">
+  <div class="row w-75">
+  <input type="file" id="file" accept="image/*" (change)="onSelectFile($event)" class="form-control-file" />
+  <p class="designation ">Choose an image from your devise </p>
+  </div>
+</div></div>
+<div mat-dialog-actions class="justify-content-end">
+  <button mat-button color="primary" (click)="updateUser()" >Save</button>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
+
+
+
+

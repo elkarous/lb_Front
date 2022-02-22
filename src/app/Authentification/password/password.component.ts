@@ -8,13 +8,11 @@ import {ToastrService} from "ngx-toastr";
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss']
 })
-export class PasswordComponent implements OnInit {
+export class PasswordComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   constructor( private authService:AuthentificationService,
                private toast:ToastrService) { }
 
-  ngOnInit(): void {
-  }
 
   getErrorEmailMessage() {
     if (this.email.hasError('required')) {
@@ -24,10 +22,9 @@ export class PasswordComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
   sendEmail(){
-    this.authService.forgotPassword(this.email.value).subscribe(data=>{
-      this.toast.success(data);
-    },error => {
-      console.log(error);
+    this.authService.forgotPassword(this.email.value).subscribe(()=>
+      this.toast.success("mail sent")
+    ,() => {
       this.toast.error("verify your email");
     });
   }

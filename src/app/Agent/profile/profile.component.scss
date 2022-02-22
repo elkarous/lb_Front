@@ -1,0 +1,33 @@
+.vl {
+  border-left: 2px solid gray;
+  height: 500px;
+}
+.file{
+  position: absolute;
+  bottom: 0;
+  outline: none;
+  color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: 0.5s;
+
+  font-size: 10px;
+}
+input[type="file"]::-webkit-file-upload-button{
+  border: 1px solid #b4b4b4;
+  border-radius: 2px;
+  box-shadow: #dcd5d5;
+  background: #ffffff;
+  cursor: pointer;
+  margin-left: 20px ;
+}
+
+
+.designation{
+  font-family: Roboto,sans-serif;
+  font-size: 12px;
+  margin-left: 10px;
+  color: #8D9498;
+}
+

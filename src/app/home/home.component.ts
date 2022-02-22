@@ -14,7 +14,7 @@ import {PasswordComponent} from "../Authentification/password/password.component
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
 user : UserEntity | undefined ;
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -31,8 +31,7 @@ user : UserEntity | undefined ;
                 private router:Router,
                 private dialog: MatDialog) { }
 
-  ngOnInit(): void {
-  }
+
   openDialog() {
     this.dialog.open(PasswordComponent,{
       height: '40%',
@@ -69,7 +68,6 @@ user : UserEntity | undefined ;
   handleResponse(data:any) {
     this.token.handle(data);
 
-
     this.account.changeAuthStatus(true);
     this.toastr.success(
       `Welcome `+this.token.getUserName(),
@@ -82,7 +80,13 @@ user : UserEntity | undefined ;
 
     );
 
+if(this.token.getUserRole()=="SUPER_ADMIN"){
     this.router.navigateByUrl('/dashboard');
+}
+else if (this.token.getUserRole()==="ADMIN"){
+
+      this.router.navigateByUrl('/dashAdmin');
+    } else this.router.navigateByUrl('/dashAgent');
   }
 
 

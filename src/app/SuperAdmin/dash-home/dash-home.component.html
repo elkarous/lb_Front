@@ -1,0 +1,87 @@
+
+
+  <div class="row ">
+    <div class="col-xl-3 col-lg-6">
+      <div class="card l-bg-cherry">
+        <div class="card-statistic-3 p-4">
+          <div class="card-icon card-icon-large"><mat-icon class="fas ">show_chart</mat-icon></div>
+          <div class="mb-4">
+            <h1 class="card-title mb-0">Total users </h1>
+          </div>
+          <div class="row align-items-center mb-2 d-flex">
+            <div class="col-8">
+              <h1 class="d-flex align-items-center mb-0">
+               0{{total}}
+              </h1>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card l-bg-blue-dark">
+        <div class="card-statistic-3 p-4">
+          <div class="card-icon card-icon-large"> <mat-icon class="fas">supervised_user_circle</mat-icon></div>
+          <div class="mb-4">
+            <h1 class="card-title mb-0">Super Admin</h1>
+          </div>
+          <div class="row align-items-center mb-2 d-flex">
+            <div class="col-8">
+              <h1 class="d-flex align-items-center mb-0">
+              0{{statistic.superAdmin}}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card l-bg-green-dark">
+        <div class="card-statistic-3 p-4">
+          <div class="card-icon card-icon-large"><mat-icon class="fas"> person</mat-icon></div>
+          <div class="mb-4">
+            <h1 class="card-title mb-0">Admin</h1>
+          </div>
+          <div class="row align-items-center mb-2 d-flex">
+            <div class="col-8">
+              <h1 class="d-flex align-items-center mb-0">
+               0{{statistic.admin}}
+              </h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card l-bg-orange-dark">
+        <div class="card-statistic-3 p-4">
+          <div class="card-icon card-icon-large"><mat-icon class="fas"> home</mat-icon></div>
+          <div class="mb-4">
+            <h1 class="card-title mb-0">Agent</h1>
+          </div>
+          <div class="row align-items-center mb-2 d-flex">
+            <div class="col-8">
+              <h1 class="d-flex align-items-center mb-0">
+                0{{statistic.agent}}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row m-auto ">
+  <mat-card class="col-7 ">
+    <mat-card-title>Map</mat-card-title>
+  <app-maps  ></app-maps>
+  </mat-card>
+  <mat-card class="col-4 ">
+    <mat-card-title  >Gender Chart</mat-card-title>
+    <echarts [initOpts]="initOpts" [options]="option" (chartInit)="onChartInit($event)" [loading]="isLoading" ></echarts>
+  </mat-card>
+</div>
+
+

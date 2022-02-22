@@ -1,0 +1,109 @@
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened mode="side" >
+
+    <div class="nav-link text-center mt-4 ">
+
+      <img [src]="retrievedImage" class="rounded-circle  mt-0 " height="80" width="80" alt="image">
+
+      <p class="name mt-2">{{user.firstName}} {{user.lastName}}</p>
+      <p class=" designation">{{user.role}}</p>
+    </div>
+<ul class="nav">
+  <li  class="nav-item text-center">
+    <button  mat-button class="menu-button nav-link active   " routerLink="/dashboard">
+      <mat-icon>dashboard</mat-icon>
+      <span >Dashboard</span>
+
+    </button>
+  </li>
+  <li  class="nav-item">
+    <button mat-button class="menu-button nav-link " routerLink="/dashboard/proprieties">
+      <mat-icon>map</mat-icon>
+      <span>Proprieties </span>
+    </button>
+  </li>
+  <li  class="nav-item">
+    <button mat-button  class="menu-button nav-link "  routerLink="/dashboard/previous">
+      <mat-icon>show_chart</mat-icon>
+      <span >Previous data </span>
+    </button>
+  </li>
+  <li  class="nav-item">
+    <button mat-button  class="menu-button nav-link "  routerLink="/dashboard/forecast">
+      <mat-icon>insert_chart_outlined</mat-icon>
+      <span >Forecast </span>
+    </button>
+  </li>
+
+  <li  class="nav-item">
+    <button mat-button class="menu-button nav-link " routerLink="/dashboard/listUsers">
+      <mat-icon>list</mat-icon>
+      <span>Users list </span>
+    </button>
+  </li>
+  <li  class="nav-item">
+    <button mat-button class="menu-button nav-link " routerLink="/dashboard/addUser">
+      <mat-icon>person_adds</mat-icon>
+      <span >Add user  </span>
+    </button>
+  </li>
+</ul>
+<div class="fixed-bottom mb-1">
+
+
+
+    <span class="nav-item">
+      <p class="designation info ">LB consulting 2022 ©  </p>
+    </span>
+</div>
+
+  </mat-sidenav>
+  <mat-sidenav-content class=" bg-light">
+    <mat-toolbar class="bg-white " >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <span class="w-100">
+    <img src="../../../assets/img/logo1.jpg" alt="logo" class="border-white" height="40" width="230">
+    </span>
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon">
+        <img [src]="retrievedImage" class="rounded-circle  " height="28" width="28" alt="image">
+      </button>
+      <mat-menu #menu="matMenu">
+       <span mat-menu-item class="text-center">
+      <p class="name">{{user.firstName}} {{user.lastName}}</p>
+      <p class="designation">Member since {{user.creationDate|date}} </p>
+
+    </span>
+        <hr >
+        <button mat-menu-item routerLink="/Dashboard/updateProfile">
+          <mat-icon>person</mat-icon>
+          <span> Update profile </span>
+        </button>
+        <button mat-menu-item (click)="openDialogPassword()">
+          <mat-icon>security</mat-icon>
+          <span > Reset password </span>
+        </button>
+        <hr>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+
+    </mat-toolbar>
+    <mat-progress-bar *ngIf="LoadService.isloading|async" mode="indeterminate"></mat-progress-bar>
+    <div class="container mb-5  ">
+
+      <div class="row  p-3 justify-content-center w-100 align-self-center">
+
+        <router-outlet ></router-outlet>
+      </div>
+
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

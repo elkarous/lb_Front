@@ -3,6 +3,9 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {TokenService} from "../Authentification/services/token.service";
 import {UserEntity} from "../../models/userEntity";
 import {HttpClient} from "@angular/common/http";
+import {Region} from "../../models/Region";
+import {StatUser} from "../../models/StatUser";
+import {Camping} from "../../models/Camping";
 
 @Injectable({
   providedIn: 'root'
@@ -42,4 +45,16 @@ export class AccountService {
   deleteUser(id :number){
     return this.http.delete(this.url+id);
   }
+getAllAddress():Observable<Region[]>{
+    return this.http.get<Region[]>(this.url+"address");
+}
+getStatUser() :Observable<StatUser>{
+    return this.http.get<StatUser>(this.url+'stat');
+}
+resetPassword(id:string,password:string):Observable<any>{
+    return this.http.post<any>(this.url+id,password)
+}
+getAddressByRegion(region :string):Observable<Camping[]>{
+    return  this.http.get<Camping[]>(this.url+'address/'+region)
+}
 }
