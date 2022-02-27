@@ -1,0 +1,47 @@
+agm-map {
+  height: 650px;
+  agm-info-window{
+    button{
+      z-index: 10;
+      background: red;
+    }
+  }
+}
+
+table {
+  text-align: center !important;
+  width: 100%;
+}
+mat-icon{
+  color: goldenrod;
+}
+.demo-table {
+  width: 100%;
+}
+
+tr.mat-row{
+  border: 2px solid #e0d4d4;
+  background: rgba(0, 0, 0, 0.04);
+  .mat-icon{
+    align-self: end;
+  }
+}
+
+.mat-header-cell {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mat-cell {
+  text-align: center;
+  justify-content:center;
+}
+.mat-list-item{
+  cursor: pointer;
+align-items: center;
+  .mat-list-item-content{
+    align-items:end;
+  }
+
+}
+

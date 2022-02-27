@@ -42,7 +42,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill" *ngIf="role.value!='SUPER_ADMIN' ">
           <mat-label>Region</mat-label>
-          <mat-select  placeholder="region" [(ngModel)]="region"  (selectionChange)="getAddressByRegion()" >
+          <mat-select  placeholder="region" [(ngModel)]="region"  (selectionChange)="getCampingByRegion()" >
             <mat-option *ngFor="let region of regions"  [value]="region">{{region.region}}</mat-option>
           </mat-select>
         </mat-form-field>

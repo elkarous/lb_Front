@@ -1,4 +1,5 @@
 import {Region} from "./Region";
+import {FileDB} from "./FileDB";
 
 export class Camping {
   id;
@@ -9,7 +10,7 @@ export class Camping {
 
   longitude: number;
   latitude: number;
-
+  nbStars:number;
   address: string;
 
   country: string;
@@ -23,5 +24,6 @@ export class Camping {
   openingDate: Date;
 
   closingDate: Date;
-  region:Region;
+  region: Region;
+  image: FileDB;
 }

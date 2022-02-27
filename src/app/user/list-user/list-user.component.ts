@@ -7,14 +7,24 @@ import {AccountService} from "../../services/account.service";
 import {ToastrService} from "ngx-toastr";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {UpdateUserComponent} from "../update-user/update-user.component";
+import {animate, state, style, transition, trigger} from "@angular/animations";
+import {Role} from "../../../models/Role";
+import {LoaderService} from "../../services/loader.service";
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
-  styleUrls: ['./list-user.component.scss']
+  styleUrls: ['./list-user.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class ListUserComponent implements AfterViewInit  {
 
-  displayedColumns: string[] = ['id','role','email','firstName','lastName','creation_date','phone','gender','actions'];
+  displayedColumns: string[] = ['image','firstName','lastName','email','role','region','creation_date','phone','gender','isBlocked','expand'];
 
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -23,17 +33,21 @@ export class ListUserComponent implements AfterViewInit  {
  images:string[];
   base64Data: Int8Array;
   retrievedImage: string;
+ expandedElement: UserEntity;
+  confirm:boolean;
   constructor( private accountService:AccountService ,
                private toast:ToastrService,
-               private dialog: MatDialog) {
+               private dialog: MatDialog,
+               ) {
              this.dataSource = new MatTableDataSource(this.users);
+
   }
 
   ngAfterViewInit() {
     this.getAllUser();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-
+    this.expandedElement = new UserEntity();
   }
 
   applyFilter(event: Event) {
@@ -44,19 +58,28 @@ export class ListUserComponent implements AfterViewInit  {
     }
   }
   getAllUser(){
-this.accountService.getAllUsers().subscribe(data=> {
+this.accountService.getAllUserWithoutAgent().subscribe(data=> {
     this.dataSource.data=data;
 
   }
 )
   }
-deleteUser(id:number){
-   let confirm= window.confirm('do you went to delete this user')
+blockUser(user:UserEntity){
+    if(user.isBlocked) {
+      this.confirm = window.confirm('do you went to block this user')
+    }else this.confirm= window.confirm('do you went to unblock this user')
   if(confirm) {
-    this.accountService.deleteUser(id).subscribe(res => {
-        this.toast.success("user deleted ",'delete', {
+    user.isBlocked=!user.isBlocked;
+    this.accountService.updateUserWithoutImage(user).subscribe(res => {
+      if(user.isBlocked) {
+        this.toast.success("user blocked ", 'delete', {
+          timeOut: 3000,
+          positionClass: 'toast-bottom-right'
+        })
+      }else  this.toast.success("user unblocked ", 'delete', {
         timeOut: 3000,
-        positionClass: 'toast-bottom-right'})
+        positionClass: 'toast-bottom-right'
+      })
         this.ngAfterViewInit();
       },
       error => this.toast.error('something wrong '))
@@ -76,4 +99,5 @@ deleteUser(id:number){
 
     return this.retrievedImage;
   }
+
 }

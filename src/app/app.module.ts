@@ -49,6 +49,10 @@ import { ProfileComponent } from './Agent/profile/profile.component';
 import { AddAgentComponent } from './Admin/add-agent/add-agent.component';
 import { ListAgentComponent } from './Admin/list-agent/list-agent.component';
 import { HomeAgentComponent } from './Admin/home-agent/home-agent.component';
+import { AgentTableComponent } from './agent-table/agent-table.component';
+import {MatListModule} from "@angular/material/list";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {AgmSnazzyInfoWindowModule} from "@agm/snazzy-info-window";
 
 @NgModule({
   declarations: [
@@ -73,7 +77,8 @@ import { HomeAgentComponent } from './Admin/home-agent/home-agent.component';
     ProfileComponent,
     AddAgentComponent,
     ListAgentComponent,
-    HomeAgentComponent
+    HomeAgentComponent,
+    AgentTableComponent
   ],
     imports: [
         BrowserModule,
@@ -106,9 +111,12 @@ import { HomeAgentComponent } from './Admin/home-agent/home-agent.component';
         }),
         MatRadioModule,
         MatTooltipModule,
-      AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyAQxPaPvhEAr2TCGh9qeN4XI1tIBV9PtIQ'
-      })
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyAQxPaPvhEAr2TCGh9qeN4XI1tIBV9PtIQ'
+        }),
+        MatListModule,
+        MatButtonToggleModule,
+        AgmSnazzyInfoWindowModule
     ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},

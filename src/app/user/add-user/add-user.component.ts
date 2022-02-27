@@ -40,9 +40,9 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.user.image = new FileDB();
-    this.user.address = new Region();
+    this.user.region = new Region();
     this.user.camping = new Camping();
-    this.getAllAddress();
+    this.getAllRegion();
 
   }
 
@@ -84,7 +84,7 @@ export class AddUserComponent implements OnInit {
 
   addUser() {
     this.user.password = this.password.value;
-    this.user.address = this.region;
+    this.user.region = this.region;
     this.user.camping = this.camp;
     if (this.photo != null) {
       const formData = new FormData();
@@ -127,11 +127,12 @@ export class AddUserComponent implements OnInit {
 
   }
 
-  getAllAddress() {
-    this.accountService.getAllAddress().subscribe(data => this.regions = data)
+  getAllRegion() {
+    this.accountService.getAllRegion().subscribe(data => this.regions = data)
   }
 
-  getAddressByRegion() {
-    this.accountService.getAddressByRegion(this.region.region).subscribe(data => this.campings = data)
+  getCampingByRegion() {
+    this.accountService.getCampingByRegion(this.region.region).subscribe(data => this.campings = data)
   }
 }
+

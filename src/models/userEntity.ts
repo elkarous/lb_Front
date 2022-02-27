@@ -14,6 +14,7 @@ export class UserEntity{
  image :FileDB;
  phone:number;
  gender:string;
- address:Region;
+ region:Region;
  camping:Camping;
+  isBlocked:boolean;
 }

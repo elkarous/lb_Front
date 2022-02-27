@@ -6,15 +6,10 @@
   [disableDefaultUI]="false"   >
 
   <agm-marker
-    *ngFor="let m of users; let i = index"
-    [latitude]="m.camping.latitude"
-    [longitude]="m.camping.longitude"
+    [latitude]="51.673858"
+    [longitude]="7.815982"
   >
 
-    <agm-info-window>
-      <strong>Latitude: {{m.camping.latitude}}</strong><br/>
-      <strong>Longitude: {{m.camping.longitude}}</strong>
-    </agm-info-window>
 
   </agm-marker>
 

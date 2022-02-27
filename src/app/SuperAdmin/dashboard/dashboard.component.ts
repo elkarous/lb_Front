@@ -6,7 +6,6 @@ import {AccountService} from "../../services/account.service";
 import {UserEntity} from "../../../models/userEntity";
 import {TemplatePasswordComponent} from "../../template-password/template-password.component";
 import {MatDialog} from "@angular/material/dialog";
-import {ProfileComponent} from "../../Agent/profile/profile.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,37 +13,12 @@ import {ProfileComponent} from "../../Agent/profile/profile.component";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  user: UserEntity
+  user: UserEntity=new UserEntity();
   selectedFile: File;
   retrievedImage: any;
   base64Data: any;
-  initOpts = {
-    renderer: 'svg',
-    width: 300,
-    height: 300
-  };
 
-  option = {
-    series: [
-      {
-        type: 'pie',
-        data: [
-          {
-            value: 335,
-            name: 'Direct Visit'
-          },
-          {
-            value: 234,
-            name: 'Union Ad'
-          },
-          {
-            value: 1548,
-            name: 'Search Engine'
-          }
-        ]
-      }
-    ]
-  };
+
 
   constructor(private tokenService: TokenService,
               private router: Router,
@@ -62,7 +36,7 @@ export class DashboardComponent implements OnInit {
 
   logout() {
     this.tokenService.remove();
-    this.router.navigateByUrl("/");
+    this.router.navigateByUrl("/").then();
 
   }
 

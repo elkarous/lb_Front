@@ -45,7 +45,7 @@ userLogIn: UserEntity;
   ngOnInit(): void {
     this.user.image = new FileDB();
     this.user.camping = new Camping();
-this.getAddressByRegion(this.tokenService.getRegion());
+this.getCampingByRegion(this.tokenService.getRegion());
 
   }
 
@@ -132,8 +132,8 @@ this.getAddressByRegion(this.tokenService.getRegion());
   }
 
 
-  getAddressByRegion(region:string){
-    this.accountService.getAddressByRegion(region).subscribe(data=>{this.campings=data
+  getCampingByRegion(region:string){
+    this.accountService.getCampingByRegion(region).subscribe(data=>{this.campings=data
     console.log(this.campings)})
   }
 

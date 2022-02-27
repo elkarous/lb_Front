@@ -7,6 +7,7 @@ import {AccountService} from "../../services/account.service";
 import {ToastrService} from "ngx-toastr";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {UpdateUserComponent} from "../../user/update-user/update-user.component";
+import {TokenService} from "../../Authentification/services/token.service";
 
 @Component({
   selector: 'app-list-agent',
@@ -15,7 +16,7 @@ import {UpdateUserComponent} from "../../user/update-user/update-user.component"
 })
 export class ListAgentComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['id','role','email','firstName','lastName','creation_date','phone','gender','actions'];
+  displayedColumns: string[] = ['id','camping','email','firstName','lastName','creation_date','phone','gender','actions'];
 
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -26,6 +27,7 @@ export class ListAgentComponent implements AfterViewInit {
   retrievedImage: string;
   constructor( private accountService:AccountService ,
                private toast:ToastrService,
+               private token:TokenService,
                private dialog: MatDialog) {
     this.dataSource = new MatTableDataSource(this.users);
   }
@@ -45,7 +47,7 @@ export class ListAgentComponent implements AfterViewInit {
     }
   }
   getAllUser(){
-    this.accountService.getAllUsers().subscribe(data=> {
+    this.accountService.getAgentByRegion(this.token.getRegion()).subscribe(data=> {
         this.dataSource.data=data;
 
       }

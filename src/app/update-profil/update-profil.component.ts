@@ -15,7 +15,7 @@ export class UpdateProfilComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   user:UserEntity=new UserEntity();
   hide = true;
-  message: File;
+  message: any;
   photo: File;
   password=new FormControl(null, [Validators.required, Validators.minLength(8)])
    base64Data: Int8Array;
@@ -55,6 +55,7 @@ export class UpdateProfilComponent implements OnInit {
     if (event.target.files.length > 0) {
       this.photo = event.target.files[0];
       this.message = this.photo;
+      console.log(this.photo)
       const reader = new FileReader();
       reader.onload = () => {
         this.retrievedImage = reader.result as string;
@@ -67,7 +68,7 @@ export class UpdateProfilComponent implements OnInit {
     if(this.photo!=null) {
       const formData = new FormData();
       if (this.photo) {
-        this.user.image.name = this.photo.name;
+        this.user.image = this.message;
       }
       formData.append('image', this.photo);
       formData.append('userDto', JSON.stringify(this.user));

@@ -39,9 +39,9 @@
       <td mat-cell *matCellDef="let element"> {{element.creationDate| date}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="role">
-      <th mat-header-cell *matHeaderCellDef  id="role" mat-sort-header> Role </th>
-      <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+    <ng-container matColumnDef="camping">
+      <th mat-header-cell *matHeaderCellDef  id="camping" mat-sort-header> Camping </th>
+      <td mat-cell *matCellDef="let element"> {{element.camping.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="gender">
