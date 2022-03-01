@@ -18,6 +18,7 @@ import {DashAdminComponent} from "./Admin/dash-admin/dash-admin.component";
 import {ListAgentComponent} from "./Admin/list-agent/list-agent.component";
 import {AddAgentComponent} from "./Admin/add-agent/add-agent.component";
 import {HomeAgentComponent} from "./Admin/home-agent/home-agent.component";
+import {CampingComponent} from "./camping/camping.component";
 
 
 
@@ -47,6 +48,7 @@ const routes: Routes = [
       {path: 'listUsers', component: ListUserComponent },
       {path: 'addUser', component: AddUserComponent},
       {path: 'proprieties', component: ProprietiesComponent},
+      {path: 'proprieties/:id', component: CampingComponent},
       {path: 'previous', component: PreviousComponent},
       {path: 'forecast', component: ForecastComponent},
 

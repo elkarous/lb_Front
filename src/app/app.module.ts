@@ -53,6 +53,10 @@ import { AgentTableComponent } from './agent-table/agent-table.component';
 import {MatListModule} from "@angular/material/list";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {AgmSnazzyInfoWindowModule} from "@agm/snazzy-info-window";
+import { CampingComponent } from './camping/camping.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {AgmMarkerClustererModule} from "@agm/markerclusterer";
+
 
 @NgModule({
   declarations: [
@@ -78,46 +82,50 @@ import {AgmSnazzyInfoWindowModule} from "@agm/snazzy-info-window";
     AddAgentComponent,
     ListAgentComponent,
     HomeAgentComponent,
-    AgentTableComponent
+    AgentTableComponent,
+    CampingComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        BrowserModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        ToastrModule.forRoot(),
-        BrowserAnimationsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatSliderModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatDialogModule,
-        MatProgressBarModule,
-        MatCardModule,
-        MatSidenavModule,
-        MatDividerModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatDialogModule,
-        NgxEchartsModule.forRoot({
-            echarts: () => import('echarts')
-        }),
-        MatRadioModule,
-        MatTooltipModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAQxPaPvhEAr2TCGh9qeN4XI1tIBV9PtIQ'
-        }),
-        MatListModule,
-        MatButtonToggleModule,
-        AgmSnazzyInfoWindowModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatProgressBarModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
+    MatRadioModule,
+    MatTooltipModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAQxPaPvhEAr2TCGh9qeN4XI1tIBV9PtIQ'
+    }),
+    MatListModule,
+    MatButtonToggleModule,
+    AgmSnazzyInfoWindowModule,
+    MatGridListModule,
+    AgmMarkerClustererModule,
+
+  ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
     {

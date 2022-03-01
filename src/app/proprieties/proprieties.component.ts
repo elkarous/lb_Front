@@ -36,24 +36,32 @@ iconMap = {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+  clusterStyles = [
+    {
+      textColor: 'white',
+      url: 'https://github.com/googlemaps/v3-utility-library/blob/master/markerclusterer/images/m3.png',
+      height: 50,
+      width: 50
+    }]
+
   zoom: number = 5;
-  lat: number = 47.322047;
-  lng: number = 5.04148;
+  lat: number = 46.204;
+  lng: number = 1.755;
 
   camping: Camping[];
   base64Data: Int8Array;
   retrievedImage: string;
   displayedColumns: string[] = ['name'];
-campingClicked: Camping[]=[];
-  latitude: number;
-  longitude: number;
   show=false;
+  isOpen=false;
   ngOnInit(): void {
     this.getAllCamping();
     this.dataSource = new MatTableDataSource(this.camping);
     this.dataSource.paginator = this.paginator;
   }
-
+  closeWindow(){
+    this.isOpen=false;
+  }
   clickedMarker( star: number) {
     this.nbStars(star);
   }
@@ -83,13 +91,6 @@ campingClicked: Camping[]=[];
       this.dataSource.paginator.firstPage();
     }
   }
-  onClickCamp(camp:Camping){
-this.lat=camp.latitude
-this.lng=camp.longitude
-    this.zoom=12
-    this.camping=null
-this.ngAfterViewInit();
 
-  }
 }
 

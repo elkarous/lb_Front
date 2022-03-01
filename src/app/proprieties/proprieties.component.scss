@@ -1,47 +1,59 @@
 agm-map {
   height: 650px;
-  agm-info-window{
-    button{
-      z-index: 10;
-      background: red;
-    }
-  }
+
 }
 
 table {
   text-align: center !important;
   width: 100%;
 }
-mat-icon{
-  color: goldenrod;
+.close{
+  z-index: 30;
+  width: 20px ;
+  position: absolute;
+  background-color: white;
 }
-.demo-table {
-  width: 100%;
-}
-
-tr.mat-row{
-  border: 2px solid #e0d4d4;
-  background: rgba(0, 0, 0, 0.04);
-  .mat-icon{
-    align-self: end;
-  }
-}
-
-.mat-header-cell {
-  flex-direction: column;
-  justify-content: center;
-}
-
-.mat-cell {
-  text-align: center;
-  justify-content:center;
-}
-.mat-list-item{
-  cursor: pointer;
-align-items: center;
-  .mat-list-item-content{
-    align-items:end;
+.stars {
+  font-size: 17px;
+    color: goldenrod;
   }
 
+  .demo-table {
+    width: 100%;
+  }
+
+  tr.mat-row{
+    border: 2px solid #e0d4d4;
+    background: rgba(0, 0, 0, 0.04);
+    .mat-icon{
+      align-self: end;
+    }
+  }
+
+  .mat-header-cell {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mat-cell {
+    text-align: center;
+    justify-content:center;
+  }
+  .mat-list-item{
+    cursor: pointer;
+    align-items: center;
+    .mat-list-item-content{
+      align-items:end;
+      cursor: pointer;
+    }
+
+
+}
+.mat-grid-tile{
+  height: 20px;
+  margin:10px;
+}
+.mat-grid-tile-content{
+  margin-right: 0px;
 }
 

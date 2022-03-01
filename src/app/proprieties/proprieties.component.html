@@ -2,17 +2,26 @@
   <div class="col-5 p-1">
     <mat-form-field appearance="fill" class="w-100">
       <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="camping name "  #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="camping name " #input>
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <table mat-table [dataSource]="dataSource"  class=" w-100 p-3"   >
+    <table mat-table [dataSource]="dataSource" class=" w-100 p-3">
       <caption></caption>
 
-      <ng-container matColumnDef="name"  >
-        <th mat-header-cell  id="name" *matHeaderCellDef mat-sort-header> Camping </th>
-        <mat-list-item class="row" mat-cell *matCellDef="let element" >  {{element.campDescription}} <mat-icon matSuffix  (click)="onClickCamp(element)">arrow_right</mat-icon> </mat-list-item>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell id="name" *matHeaderCellDef mat-sort-header> Camping</th>
+        <mat-list-item mat-cell *matCellDef="let element" matTooltip="Show camping details"
+                       routerLink="/dashboard/proprieties/{{element.id}}">
+          <mat-grid-list rowHeight="20px" cols="2">
+            <mat-grid-tile [colspan]="1">
+              <span class="text-center "> {{element.campDescription}}</span>
+            </mat-grid-tile>
+            <mat-grid-tile class="align-items-end">
+              <mat-icon class="my-0">keyboard_arrow_right</mat-icon>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-list-item>
       </ng-container>
-
 
 
       <tr
@@ -28,31 +37,46 @@
     <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
   </div>
   <div class="col-7 pt-1">
-<agm-map
-  [latitude]="lat"
-  [longitude]="lng"
-  [zoom]="zoom"
-  [disableDefaultUI]="false">
-
-  <agm-marker
-    *ngFor="let camp of dataSource.data; let i = index"
-    [latitude]="camp.latitude"
-    [longitude]="camp.longitude"
-    (markerClick)="clickedMarker(camp.nbStars)"
-  >
-
-    <agm-info-window class="card" #infoWindow>
-      <img [src]="getImage(camp)" alt="image" class="card-img-top" height="200" width="300">
-      <h5 class="card-title">{{camp.campDescription}}<span *ngFor="let star of numbers"><mat-icon>star</mat-icon></span></h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{camp.name}}</h6>
+    <agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false">
 
 
+      <agm-marker-cluster
+        imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+        <agm-marker
+          *ngFor="let camp of dataSource.data; let i = index"
+          [latitude]="camp.latitude"
+          [longitude]="camp.longitude"
+          (markerClick)="clickedMarker(camp.nbStars)"
+        >
+          <agm-snazzy-info-window [closeWhenOthersOpen]="true" [showCloseButton]="false"
+                                  [padding]="'0px'" maxHeight="400" maxWidth="550"
 
-    </agm-info-window>
 
-  </agm-marker>
+          >
+            <ng-template>
+              <div class="card">
+                <button type="button" class="btn-close close m-1 p-2" aria-label="Close"
+                        (click)="closeWindow()"></button>
+                <img [src]="getImage(camp)" alt="image" class="card-img-top" height="200" width="100%">
+                <div class="card-body">
 
-</agm-map>
+                  <h5 class="card-subtitle mb-2 text-uppercase text-muted">{{camp.name}}  |  {{camp.address}}</h5>
+                  <h2 class="card-title  ">  {{camp.campDescription}}  <span *ngFor="let star of numbers"><mat-icon
+                    class="stars ">star</mat-icon></span></h2>
+                </div>
+              </div>
+            </ng-template>
+          </agm-snazzy-info-window>
+
+
+        </agm-marker><!-- multiple markers -->
+      </agm-marker-cluster>
+
+    </agm-map>
 
   </div>
 </div>

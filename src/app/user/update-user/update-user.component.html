@@ -62,9 +62,9 @@
           <mat-label>Role</mat-label>
           <mat-select   [(ngModel)]="user.role"   placeholder="Role" required>
             <mat-option disabled>select role</mat-option>
-            <mat-option value="Super_Admin">Super Admin</mat-option>
-            <mat-option value="Admin"> Admin</mat-option>
-            <mat-option value="Agent">Agent</mat-option>
+            <mat-option value="SUPER_ADMIN">Super Admin</mat-option>
+            <mat-option value="ADMIN"> Admin</mat-option>
+            <mat-option value="AGENT">Agent</mat-option>
           </mat-select>
 
         </mat-form-field>
@@ -78,6 +78,7 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="close" (click)="updateUser()" cdkFocusInitial>Update</button>
+    <button mat-button [mat-dialog-close]="close" (click)="updateUser()" >Update</button>
   </mat-dialog-actions>
+
 

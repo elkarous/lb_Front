@@ -59,8 +59,8 @@
 </div>
 
   </mat-sidenav>
-  <mat-sidenav-content class=" bg-light">
-    <mat-toolbar class="bg-white " >
+  <mat-sidenav-content class="  bg-light">
+    <mat-toolbar class="bg-white  " >
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
 
         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
@@ -98,9 +98,10 @@
     <mat-progress-bar *ngIf="LoadService.isloading|async" mode="indeterminate"></mat-progress-bar>
     <div class="container mb-5  ">
 
-      <div class="row  p-3 justify-content-center w-100 align-self-center">
 
-        <router-outlet ></router-outlet>
+      <div class="row  p-2 justify-content-center  align-self-center">
+
+        <router-outlet class="w-100" ></router-outlet>
       </div>
 
     </div>

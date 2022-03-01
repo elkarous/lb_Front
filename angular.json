@@ -34,15 +34,12 @@
               {
                 "input": "src/my-theme.scss"
 
-              },{
-
-                "input": "src/snazzy-info-window.css"
               },
-              "src/styles.scss",
-              "./node_modules/snazzy-info-window/dist/snazzy-info-window.css",
+             "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-toastr/toastr.css",
-              "./node_modules/font-awesome/css/font-awesome.css"
+              "./node_modules/font-awesome/css/font-awesome.css",
+              "./node_modules/snazzy-info-window/dist/snazzy-info-window.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
