@@ -3,6 +3,9 @@ import {TokenService} from "../Authentification/services/token.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Camping} from "../../models/Camping";
+import {Nationality} from "../../models/nationality";
+import {NationalityRequest} from "../../models/nationalityRequest";
+import {CampingResponse} from "../../models/CampingResponse";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,10 @@ getAllCamping():Observable<Camping[]>{
 getCampingById(id):Observable<Camping>{
     return this.http.get<Camping>(this.url+id)
 }
-getNationality(id ){
-    return this.http.get('http://localhost:8085/pickup/count/'+id)
+getNationality(nationalityRequest:NationalityRequest ):Observable<Nationality[]>{
+    return this.http.post<Nationality[]>('http://localhost:8085/pickup/count/',nationalityRequest)
+}
+getNames() :Observable<CampingResponse []>{
+    return this.http.get<CampingResponse[]>(this.url+"names")
 }
 }

@@ -19,6 +19,7 @@ import {ListAgentComponent} from "./Admin/list-agent/list-agent.component";
 import {AddAgentComponent} from "./Admin/add-agent/add-agent.component";
 import {HomeAgentComponent} from "./Admin/home-agent/home-agent.component";
 import {CampingComponent} from "./camping/camping.component";
+import {CampStatComponent} from "./camp-stat/camp-stat.component";
 
 
 
@@ -42,7 +43,8 @@ const routes: Routes = [
 
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], children: [
-      {path: '',component: DashHomeComponent},
+      {path: '',component: ListUserComponent},
+      {path: 'campStat',component: CampStatComponent},
       {path: 'updateProfile', component: UpdateProfilComponent},
       {path: 'resetPassword', component: TemplatePasswordComponent},
       {path: 'listUsers', component: ListUserComponent },

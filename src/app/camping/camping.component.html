@@ -1,28 +1,38 @@
+<nav aria-label="breadcrumb" class="m-2 ">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="" routerLink="/dashboard/proprieties">Proprieties</a> </li>
+    <li class="breadcrumb-item active" aria-current="page">{{camping.name}}</li>
+  </ol>
+</nav>
 <div class="row w-100 h-100 bg-white p-1">
   <div class="col-5 p-1 ">
 
-
-
-        <h1 class="card-title  ">  {{camping.campDescription}}  <span *ngFor="let star of numbers"><mat-icon
+    <h1 class="card-title  ">  {{camping.campDescription}}  <span *ngFor="let star of numbers"><mat-icon
           class="stars ">star</mat-icon></span></h1>
-      <mat-list role="list">
-        <mat-list-item role="list-item"> <mat-icon class="m-2 ">home</mat-icon> {{camping.name}}  |  {{camping.address}}</mat-list-item>
-        <mat-list-item role="list-item"><mat-icon class="m-2">calendar_today</mat-icon> Open from {{camping.openingDate|date}}  to {{camping.closingDate|date}} </mat-list-item>
+    <img [src]="getImage(camping)" alt="image" class="m-2"  height="200" width="500">
+    <hr class=" ">
+    <mat-list role="list">
+        <mat-list-item role="list-item"> <mat-icon class="m-2 ">home</mat-icon> <p>{{camping.name}}  |  {{camping.address}} </p></mat-list-item>
+        <mat-list-item role="list-item"><mat-icon class="m-2">calendar_today</mat-icon> <p> Open from {{camping.openingDate|date}}  to {{camping.closingDate|date}}</p> </mat-list-item>
         <mat-list-item role="list-item"> <mat-icon class="m-2 "> location_on</mat-icon>
-          {{camping.address}} | {{camping.country}}</mat-list-item>
+       <p>   {{camping.address}} | {{camping.country}} </p></mat-list-item>
 
       </mat-list>
+    <hr>
+    <div class="m-2">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Seasons</mat-label>
+        <mat-select [(value)]="seasonSelected">
+          <mat-option [value]="season" *ngFor="let season of seasons" (onSelectionChange)="getDateOnselect(season)">{{ season.seasonName }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <a  class="downIcon" csvLink [data]="data" [filename]="camping.name+ seasonSelected.seasonName" matTooltip="download data format csv"> <mat-icon>cloud_download</mat-icon></a>
+    <echarts class="card p-1" [initOpts]="initOpts" [options]="option"  ></echarts>
+    </div>
 
-
-    <img [src]="getImage(camping)" alt="image" class="card-img-top" height="200" width="100%">
-    <div class="mb-0">
-    <button mat-raised-button class=" mt-2" routerLink="/dashboard/proprieties">
-      <mat-icon>arrow_back_ios</mat-icon>
-      Back
-    </button>
-      </div>
   </div>
-  <div class="col-7 pt-1">
+  <div class="col-7 pt-1  ">
+    <div class="sticky-top">
     <agm-map
       [latitude]="camping.latitude"
       [longitude]="camping.longitude"
@@ -34,14 +44,10 @@
         [longitude]="camping.longitude"
         (markerClick)="clickedMarker(camping.nbStars)"
       >
-        <agm-snazzy-info-window [closeWhenOthersOpen]="true" [showCloseButton]="false"
-                                [padding]="'0px'" maxHeight="400" maxWidth="550"
-
-
-        >
+        <agm-snazzy-info-window      [padding]="'0px'" maxHeight="400" maxWidth="550" [isOpen]="true" [latitude]="camping.latitude" [longitude]="camping.longitude" [closeWhenOthersOpen]="true">
           <ng-template>
             <div class="card">
-              <button type="button" class="btn-close close m-1 p-2" aria-label="Close"></button>
+
               <img [src]="getImage(camping)" alt="image" class="card-img-top" height="200" width="100%">
               <div class="card-body">
 
@@ -53,11 +59,10 @@
           </ng-template>
         </agm-snazzy-info-window>
 
-
       </agm-marker>
 
     </agm-map>
-
+    </div>
   </div>
 </div>
-<echarts [initOpts]="initOpts" [options]="option" (chartInit)="onChartInit($event)"  [loading]="true" ></echarts>
+

@@ -8,8 +8,7 @@ import {ToastrService} from "ngx-toastr";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {UpdateUserComponent} from "../update-user/update-user.component";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {Role} from "../../../models/Role";
-import {LoaderService} from "../../services/loader.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
@@ -38,6 +37,7 @@ export class ListUserComponent implements AfterViewInit  {
   constructor( private accountService:AccountService ,
                private toast:ToastrService,
                private dialog: MatDialog,
+               private _snackBar: MatSnackBar
                ) {
              this.dataSource = new MatTableDataSource(this.users);
 
@@ -57,6 +57,12 @@ export class ListUserComponent implements AfterViewInit  {
       this.dataSource.paginator.firstPage();
     }
   }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action , {
+      duration: 2000,
+      panelClass: ['blue-snackbar']
+    });
+  }
   getAllUser(){
 this.accountService.getAllUserWithoutAgent().subscribe(data=> {
     this.dataSource.data=data;
@@ -72,14 +78,9 @@ blockUser(user:UserEntity){
     user.isBlocked=!user.isBlocked;
     this.accountService.updateUserWithoutImage(user).subscribe(res => {
       if(user.isBlocked) {
-        this.toast.success("user blocked ", 'delete', {
-          timeOut: 3000,
-          positionClass: 'toast-bottom-right'
-        })
-      }else  this.toast.success("user unblocked ", 'delete', {
-        timeOut: 3000,
-        positionClass: 'toast-bottom-right'
-      })
+        this.openSnackBar("User Blocked",'x')
+
+      }else  this.openSnackBar("User Unblocked" ,'x')
         this.ngAfterViewInit();
       },
       error => this.toast.error('something wrong '))

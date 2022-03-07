@@ -3,6 +3,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CampingServiceService} from "../services/camping-service.service";
 import {Camping} from "../../models/Camping";
 import {FileDB} from "../../models/FileDB";
+import {NationalityRequest} from "../../models/nationalityRequest";
+import {Nationality} from "../../models/nationality";
+
 
 @Component({
   selector: 'app-camping',
@@ -11,62 +14,41 @@ import {FileDB} from "../../models/FileDB";
 })
 export class CampingComponent implements OnInit, AfterViewInit {
   numbers: number[];
-  data = null;
+  data : Nationality[];
   id: string;
   option: any = {};
 
   constructor(private router: ActivatedRoute,
               private campingService: CampingServiceService) {
     this.id = this.router.snapshot.paramMap.get("id");
+    this.getData(this.nationalityRequest);
+
   }
 
+  seasonSelected=  {
+    "startDate": "2020-11-01",
+    "endDate": "2021-11-01",
+    "seasonName": " Season 2021",
+  };
   camping = new Camping();
   base64Data: Int8Array;
-  retrievedImage: string;
+  retrievedImage: string
+  nationalityRequest: NationalityRequest = {
+    "camping": "512",
+    "startDate": "2020-10-11",
+    "endDate": "2021-10-11"
+  };
 
   ngOnInit(): void {
-    this.camping.image=new FileDB();
-   this.getData();
+    this.camping.image = new FileDB();
+
   }
 
-  onChartInit(e: any) {
-    this.option = {
-      color: [
-        '#5cb85c',
-        '#65C6BB',
-        '#1BBC9B',
-        '#f0ad4e',
-        '#d9534f',
-        '#5cb85c',
-        '#f0ad4e',
-        'red', 'yellow', '#4D775EFF', 'green', 'purple', 'teal'],
-      tooltip: {
-        trigger: 'item'
-      },
-      legend: {
-        orient: 'horizontal',
-        top: 'bottom'
-      },
-      series: [
-        {
-          name: 'Nationality',
-          type: 'pie',
-          radius: '60%',
-          data: this.data,
-          emphasis: {
-            itemStyle: {
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-          }
-        }
-      ]
-    };
-  }
 
   getCamping() {
-    this.campingService.getCampingById(this.id).subscribe(data => this.camping = data);
+    this.campingService.getCampingById(this.id).subscribe(data =>{ this.camping = data
+    this.nbStars(data.nbStars);
+    });
   }
 
   clickedMarker(star: number) {
@@ -86,16 +68,122 @@ export class CampingComponent implements OnInit, AfterViewInit {
 
   initOpts = {
     renderer: 'svg',
-    width: 700,
-    height: 350
+    width: 500,
+    height: 480
   };
 
   ngAfterViewInit(): void {
-    this.nbStars(this.camping.nbStars);
     this.getCamping();
+
   }
 
-  getData() {
-    this.campingService.getNationality(this.id).subscribe(data => this.data = data)
+  getData(nationalityRequest: NationalityRequest) {
+    nationalityRequest.camping = this.id;
+    this.campingService.getNationality(nationalityRequest).subscribe(data => {
+        this.data = data;
+        this.option = {
+          title: {
+            text: 'The distribution of clients nationalities ',
+            x: 'center',
+            textStyle:{
+            fontFamily:"Helvetica Neue",
+              fontWeight:"80"
+            }
+          },
+          color: [
+            '#de8809',
+            '#55A9A2',
+            '#555CA9',
+            '#4D56B1',
+            '#f0ad4e',
+            '#d9534f',
+            '#A95586',
+            '#B14D56',
+            '#4D56B1',
+            '#0F1123',
+            '#824D06'
+            ],
+          tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c} ({d}%)',
+            position: ['5', '5']
+          },
+          legend: {
+            orient: 'horizontal',
+            top: 'bottom'
+          },
+          series: [
+            {
+              name: 'Nationality',
+              type: 'pie',
+              radius: '50%',
+              data: this.data,
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+              }
+            }
+          ]
+
+        }
+
+
+      }
+    )
+
   }
+
+  seasons: Season[] = [
+    {
+      "startDate": "2021-11-01",
+      "endDate": "2022-11-01",
+      "seasonName": " Season 2022",
+    },
+    {
+      "startDate": "2020-11-01",
+      "endDate": "2021-11-01",
+      "seasonName": " Season 2021",
+    },
+    {
+      "startDate": "2019-11-01",
+      "endDate": "2020-11-01",
+      "seasonName": " Season 2020",
+    },
+    {
+      "startDate": "2018-11-01",
+      "endDate": "2019-11-01",
+      "seasonName": " Season 2019",
+    },
+    {
+      "startDate": "2017-11-01",
+      "endDate": "2018-11-01",
+      "seasonName": " Season 2018",
+    },
+    {
+      "startDate": "2016-11-01",
+      "endDate": "2017-11-01",
+      "seasonName": " Season 2017",
+    },
+    {
+      "startDate": "2016-11-01",
+      "endDate": "2015-11-01",
+      "seasonName": " Season 2016",
+    }]
+
+  getDateOnselect(season: Season) {
+    this.nationalityRequest.camping = this.id;
+    this.nationalityRequest.startDate = season.startDate;
+    this.nationalityRequest.endDate = season.endDate;
+    this.getData(this.nationalityRequest);
+  }
+
+}
+
+interface Season {
+  startDate: string;
+  endDate: string;
+  seasonName: string;
 }

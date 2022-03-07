@@ -1,36 +1,66 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserEntity} from "../../models/userEntity";
-import {AccountService} from "../services/account.service";
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+
+import {StatUser} from "../../models/StatUser";
+import {CampingServiceService} from "../services/camping-service.service";
 
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.scss']
 })
-export class MapsComponent implements OnInit{
-   constructor(private accountService:AccountService) {
+export class MapsComponent implements AfterViewInit{
+
+  data:any=null;
+   constructor(private campingService:CampingServiceService) {
    }
-  // google maps zoom level
-  zoom: number = 4;
 
-  // initial center position for the map
-  lat: number = 51.673858;
-  lng: number = 7.815982;
-users:UserEntity[]
-  clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
-  }
+  ngAfterViewInit(): void {
 
-  ngOnInit(): void {
-this.getAllUsers();
-  }
-  getAllUsers(){
-  this.accountService.getAllUsers().subscribe(data=>{
+    }
+  initOpts = {
+    renderer: 'svg',
+    width: 700,
+    height: 350
+  };
 
-    this.users=data
-    console.log(this.users)
-  });
-  }
+   option = {
+      color: [
+        '#5cb85c',
+        '#65C6BB',
+        '#1BBC9B',
+        '#f0ad4e',
+        '#d9534f',
+        '#5cb85c',
+        '#f0ad4e',
+        'red',  'yellow','#4D775EFF','green', 'purple', 'teal'],
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'horizontal',
+        top: 'bottom'
+      },
+      series: [
+        {
+          name: 'Nationality',
+          type: 'pie',
+          radius: '60%',
+          data: this.data,
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
+    };
+
+
+
+
+
 
 
 

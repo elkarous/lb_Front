@@ -1,0 +1,146 @@
+
+<mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>Camping</mat-label>
+  <mat-select [(ngModel)]="selectedCamp" [disabled]="axe=='Camping'" (selectionChange)="getHebergementByCamping(selectedCamp.code)">
+    <mat-option *ngFor="let camp of camping" [value]="camp">
+      {{camp.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>Accommodation</mat-label>
+  <mat-select [disabled]="axe=='Accommodation'" [(ngModel)]="heber">
+    <mat-option *ngFor="let heberge of hebergement" [value]="heberge">
+      {{heberge}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>occupancy date</mat-label>
+  <input matInput [(ngModel)]="date" [matDatepicker]="picker" [disabled]="axe=='Occupancy date'">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>Season</mat-label>
+  <mat-select [disabled]="axe=='Season'||date!=null" [(ngModel)]="season">
+    <mat-option value="Before Season">
+      Before Season
+    </mat-option>
+    <mat-option value="Season">
+     Season
+    </mat-option>
+    <mat-option value="After Season">
+      After Season
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>Day of week</mat-label>
+  <mat-select [disabled]="axe=='Day of week' ||date!=null" [(ngModel)]="day">
+    <mat-option *ngFor="let day of days" [value]="day">
+      {{day}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  <mat-form-field appearance="fill" class="example-form-field">
+    <mat-label>Month</mat-label>
+    <mat-select [disabled]="axe=='Month' ||date!=null" [(ngModel)]="month">
+      <mat-option *ngFor="let month of months" [value]="month">
+        {{month}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>Year</mat-label>
+  <mat-select [disabled]="axe=='Year' ||date!=null" [(ngModel)]="year">
+    <mat-option *ngFor="let year of years" [value]="year">
+      {{year}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-chip-list aria-label="options selection">
+  <mat-chip color="primary" *ngIf="selectedCamp!=null" [(ngModel)]="heber">
+    <mat-chip-avatar>
+      <mat-icon>home</mat-icon>
+    </mat-chip-avatar>
+    {{selectedCamp.name}}
+    <button matChipRemove (click)="selectedCamp=null">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip color="primary" *ngIf="heber!=null">
+    <mat-chip-avatar>
+      <mat-icon>hotel</mat-icon>
+    </mat-chip-avatar>
+    {{heber}}
+    <button matChipRemove (click)="heber=null">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip color="primary" *ngIf="date!=null">
+    <mat-chip-avatar>
+      <mat-icon>date_range</mat-icon>
+    </mat-chip-avatar>
+    {{date|date}}
+    <button matChipRemove (click)="date=null">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip color="primary" *ngIf="season!=null">
+    <mat-chip-avatar>
+      <mat-icon>home</mat-icon>
+    </mat-chip-avatar>
+    {{season}}
+    <button matChipRemove (click)="season=null">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip color="primary" *ngIf="day!=null">
+    <mat-chip-avatar>
+      <mat-icon>view_week</mat-icon>
+    </mat-chip-avatar>
+    {{day}}
+    <button matChipRemove (click)="day=null">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip color="primary" *ngIf="month!=null">
+    <mat-chip-avatar>
+      <mat-icon>home</mat-icon>
+    </mat-chip-avatar>
+    {{month}}
+    <button matChipRemove (click)="month=null">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip color="primary" *ngIf="year!=null">
+    <mat-chip-avatar>
+      <mat-icon>calendar_today</mat-icon>
+    </mat-chip-avatar>
+    {{year}}
+    <button matChipRemove (click)="year=null">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+
+
+</mat-chip-list>
+<div class="d-flex align-items-center justify-content-center mt-2">
+<label id="example-radio-group-label" class="col-1" >Pick the axe : </label>
+
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group "
+  [(ngModel)]="axe">
+  <mat-radio-button color="primary" class="example-radio-button" *ngFor="let axe of axes" [value]="axe">
+    {{axe}}
+  </mat-radio-button>
+</mat-radio-group>
+</div>
+<div class="d-flex align-items-center justify-content-center p-3">
+
+<echarts [initOpts]="initOpts"    [options]="options" class="card w-75 p-2"></echarts>
+</div>
+
+<button (click)="getAllCampStat()">reload</button>

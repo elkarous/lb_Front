@@ -56,7 +56,13 @@ import {AgmSnazzyInfoWindowModule} from "@agm/snazzy-info-window";
 import { CampingComponent } from './camping/camping.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {AgmMarkerClustererModule} from "@agm/markerclusterer";
-
+import {CsvModule} from "@ctrl/ngx-csv";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CampStatComponent } from './camp-stat/camp-stat.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -83,7 +89,8 @@ import {AgmMarkerClustererModule} from "@agm/markerclusterer";
     ListAgentComponent,
     HomeAgentComponent,
     AgentTableComponent,
-    CampingComponent
+    CampingComponent,
+    CampStatComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +131,12 @@ import {AgmMarkerClustererModule} from "@agm/markerclusterer";
     AgmSnazzyInfoWindowModule,
     MatGridListModule,
     AgmMarkerClustererModule,
-
+    CsvModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatChipsModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},

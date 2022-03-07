@@ -59,7 +59,7 @@ user : UserEntity | undefined ;
         res => this.handleResponse(res),
         err => this.toastr.error(
           `error`,
-          'email or password incorrect !',
+          'Some thing wrong ',
           {
             timeOut: 3000,
             positionClass: 'toast-bottom-left'
